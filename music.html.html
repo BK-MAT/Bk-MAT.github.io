@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music | Boss BK</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .music-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+            margin-top: 35px;
+        }
+
+        .album-card {
+            background: #171717;
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 15px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .album-card:hover {
+            transform: translateY(-8px);
+            border-color: #c6a66b;
+        }
+
+        .album-cover {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 27px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .cover-kelvin {
+            background: radial-gradient(circle at top left, #b99a72, #45382f 55%, #171411);
+        }
+
+        .cover-kabza {
+            background: linear-gradient(135deg, #c5a66a, #51412e, #171717);
+        }
+
+        .cover-loatinover {
+            background: linear-gradient(145deg, #a44b35, #42251f, #151515);
+        }
+
+        .cover-kanye {
+            background: linear-gradient(135deg, #e7b94f, #a96b24, #4d2815);
+            color: #24170d;
+        }
+
+        .cover-kqwanele {
+            background: linear-gradient(135deg, #9c9c9c, #414141, #111111);
+        }
+
+        .album-artist {
+            color: #c6a66b;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 17px;
+        }
+
+        .album-title {
+            color: #fff;
+            font-size: 20px;
+            margin-top: 7px;
+        }
+
+        .music-intro {
+            color: #aaa;
+            line-height: 1.7;
+            max-width: 650px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">BOSS BK.</a>
+
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="music.html">Music</a>
+                <a href="contacts.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-section">
+            <p class="eyebrow">MY SOUND. MY TASTE.</p>
+            <h1>Music Collection</h1>
+
+            <p class="music-intro">
+                Music is more than sound. It's a mood, a lifestyle
+                and a reflection of who I am. Here are some of the
+                artists and albums I enjoy.
+            </p>
+
+            <div class="music-gallery">
+
+                <article class="album-card">
+                    <div class="album-cover cover-kelvin">
+                        AMUKELANI
+                    </div>
+                    <p class="album-artist">Kelvin Momo</p>
+                    <h2 class="album-title">Amukelani</h2>
+                </article>
+
+                <article class="album-card">
+                    <div class="album-cover cover-kabza">
+                        KOA II
+                    </div>
+                    <p class="album-artist">Kabza De Small</p>
+                    <h2 class="album-title">KOA II</h2>
+                </article>
+
+                <article class="album-card">
+                    <div class="album-cover cover-loatinover">
+                        GROUND 2 GLORY
+                    </div>
+                    <p class="album-artist">Loatinover Pounds</p>
+                    <h2 class="album-title">Ground 2 Glory</h2>
+                </article>
+
+                <article class="album-card">
+                    <div class="album-cover cover-kanye">
+                        GRADUATION
+                    </div>
+                    <p class="album-artist">Kanye West</p>
+                    <h2 class="album-title">Graduation</h2>
+                </article>
+
+                <article class="album-card">
+                    <div class="album-cover cover-kqwanele">
+                        PRIVADO ESCUELA
+                    </div>
+                    <p class="album-artist">Kqwanele604</p>
+                    <h2 class="album-title">Privado Escuela</h2>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Boss BK. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
