@@ -80,6 +80,8 @@
 .album-cover {
     aspect-ratio: 1 / 1;
     width: 100%;
+    min-height: 280px;
+    height: 280px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -87,8 +89,8 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
+    box-sizing: border-box;
 }
-
 .album-cover::before {
     content: "";
     position: absolute;
