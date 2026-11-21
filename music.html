@@ -1,169 +1,315 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music | Boss BK</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .music-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 28px;
-            margin-top: 35px;
-        }
+<title>Music Collection | Boss BK</title>
+<link rel="stylesheet" href="style.css">
 
-        .album-card {
-            background: #171717;
-            border: 1px solid rgba(255,255,255,0.12);
-            padding: 15px;
-            border-radius: 12px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        .album-card:hover {
-            transform: translateY(-8px);
-            border-color: #c6a66b;
-        }
+.music-page {
+    background: #090909;
+    color: #f5f0e7;
+    min-height: 100vh;
+    padding: 65px 7%;
+}
 
-        .album-cover {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            color: #fff;
-            font-family: Georgia, serif;
-            font-size: 27px;
-            letter-spacing: 3px;
-            font-weight: bold;
-            overflow: hidden;
-        }
+.music-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
 
-        .cover-kelvin {
-            background: radial-gradient(circle at top left, #b99a72, #45382f 55%, #171411);
-        }
+.music-heading .eyebrow {
+    color: #c6a66b;
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 18px;
+}
 
-        .cover-kabza {
-            background: linear-gradient(135deg, #c5a66a, #51412e, #171717);
-        }
+.music-heading h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: normal;
+    letter-spacing: 3px;
+    margin: 0;
+}
 
-        .cover-loatinover {
-            background: linear-gradient(145deg, #a44b35, #42251f, #151515);
-        }
+.music-heading p {
+    color: #aaa;
+    max-width: 580px;
+    line-height: 1.8;
+    margin: 20px auto;
+}
 
-        .cover-kanye {
-            background: linear-gradient(135deg, #e7b94f, #a96b24, #4d2815);
-            color: #24170d;
-        }
+.gold-line {
+    width: 65px;
+    height: 2px;
+    background: #c6a66b;
+    margin: 25px auto;
+}
 
-        .cover-kqwanele {
-            background: linear-gradient(135deg, #9c9c9c, #414141, #111111);
-        }
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    max-width: 1150px;
+    margin: auto;
+}
 
-        .album-artist {
-            color: #c6a66b;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 17px;
-        }
+.album-card {
+    background: #151515;
+    padding: 15px;
+    border: 1px solid #29251e;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    animation: fadeUp 0.8s ease both;
+}
 
-        .album-title {
-            color: #fff;
-            font-size: 20px;
-            margin-top: 7px;
-        }
+.album-card:hover {
+    transform: translateY(-10px);
+    border-color: #c6a66b;
+    box-shadow: 0 15px 35px rgba(198,166,107,0.12);
+}
 
-        .music-intro {
-            color: #aaa;
-            line-height: 1.7;
-            max-width: 650px;
-        }
-    </style>
+.album-cover {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.album-cover::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+}
+
+.album-cover::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+}
+
+.cover-text {
+    position: relative;
+    z-index: 2;
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 3vw, 34px);
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.5);
+}
+
+.cover-kelvin {
+    background:
+    radial-gradient(circle at 30% 25%, #b99b79, transparent 35%),
+    linear-gradient(145deg, #51402e, #17130f);
+}
+
+.cover-kabza {
+    background:
+    radial-gradient(circle at 70% 30%, #d4b77c, transparent 35%),
+    linear-gradient(145deg, #77603c, #171717);
+}
+
+.cover-loatinover {
+    background:
+    radial-gradient(circle at 30% 70%, #a64b35, transparent 40%),
+    linear-gradient(145deg, #52251d, #120d0c);
+}
+
+.cover-kanye {
+    background:
+    radial-gradient(circle at 70% 25%, #f4d37c, transparent 40%),
+    linear-gradient(145deg, #d69a37, #603b1d);
+    color: #24170d;
+}
+
+.cover-kqwanele {
+    background:
+    radial-gradient(circle at 50% 40%, #858585, transparent 35%),
+    linear-gradient(145deg, #444, #080808);
+}
+
+.album-info {
+    padding: 18px 5px 12px;
+}
+
+.album-number {
+    color: #c6a66b;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.album-info h2 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 9px 0 5px;
+}
+
+.album-info p {
+    color: #999;
+    font-size: 13px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.music-footer {
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    margin-top: 65px;
+    letter-spacing: 2px;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 850px) {
+    .album-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .music-page {
+        padding: 45px 5%;
+    }
+
+    .album-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .music-heading h1 {
+        font-size: 38px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar">
-            <a href="home.html" class="logo">BOSS BK.</a>
+<header>
+    <nav class="navbar">
+        <a href="home.html" class="logo">BOSS BK.</a>
 
-            <div class="nav-links">
-                <a href="home.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="music.html">Music</a>
-                <a href="contacts.html">Contact</a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="music.html">Music</a>
+            <a href="contacts.html">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main class="music-page">
+
+    <section class="music-heading">
+        <p class="eyebrow">MY SOUND. MY IDENTITY.</p>
+
+        <h1>The Music Collection</h1>
+
+        <div class="gold-line"></div>
+
+        <p>
+            Every album tells a story. Every artist brings
+            a different energy. These are some of the sounds
+            that define my taste, my mood and my lifestyle.
+        </p>
+    </section>
+
+    <section class="album-grid">
+
+        <article class="album-card">
+            <div class="album-cover cover-kelvin">
+                <span class="cover-text">AMUKELANI</span>
             </div>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="page-section">
-            <p class="eyebrow">MY SOUND. MY TASTE.</p>
-            <h1>Music Collection</h1>
-
-            <p class="music-intro">
-                Music is more than sound. It's a mood, a lifestyle
-                and a reflection of who I am. Here are some of the
-                artists and albums I enjoy.
-            </p>
-
-            <div class="music-gallery">
-
-                <article class="album-card">
-                    <div class="album-cover cover-kelvin">
-                        AMUKELANI
-                    </div>
-                    <p class="album-artist">Kelvin Momo</p>
-                    <h2 class="album-title">Amukelani</h2>
-                </article>
-
-                <article class="album-card">
-                    <div class="album-cover cover-kabza">
-                        KOA II
-                    </div>
-                    <p class="album-artist">Kabza De Small</p>
-                    <h2 class="album-title">KOA II</h2>
-                </article>
-
-                <article class="album-card">
-                    <div class="album-cover cover-loatinover">
-                        GROUND 2 GLORY
-                    </div>
-                    <p class="album-artist">Loatinover Pounds</p>
-                    <h2 class="album-title">Ground 2 Glory</h2>
-                </article>
-
-                <article class="album-card">
-                    <div class="album-cover cover-kanye">
-                        GRADUATION
-                    </div>
-                    <p class="album-artist">Kanye West</p>
-                    <h2 class="album-title">Graduation</h2>
-                </article>
-
-                <article class="album-card">
-                    <div class="album-cover cover-kqwanele">
-                        PRIVADO ESCUELA
-                    </div>
-                    <p class="album-artist">Kqwanele604</p>
-                    <h2 class="album-title">Privado Escuela</h2>
-                </article>
-
+            <div class="album-info">
+                <span class="album-number">01 / FAVOURITE ARTIST</span>
+                <h2>Amukelani</h2>
+                <p>Kelvin Momo</p>
             </div>
-        </section>
-    </main>
+        </article>
 
-    <footer>
-        <p>© 2026 Boss BK. All Rights Reserved.</p>
+        <article class="album-card">
+            <div class="album-cover cover-kabza">
+                <span class="cover-text">KOA II</span>
+            </div>
+            <div class="album-info">
+                <span class="album-number">02 / FAVOURITE ARTIST</span>
+                <h2>KOA II</h2>
+                <p>Kabza De Small</p>
+            </div>
+        </article>
+
+        <article class="album-card">
+            <div class="album-cover cover-loatinover">
+                <span class="cover-text">GROUND 2 GLORY</span>
+            </div>
+            <div class="album-info">
+                <span class="album-number">03 / FAVOURITE ARTIST</span>
+                <h2>Ground 2 Glory</h2>
+                <p>Loatinover Pounds</p>
+            </div>
+        </article>
+
+        <article class="album-card">
+            <div class="album-cover cover-kanye">
+                <span class="cover-text">GRADUATION</span>
+            </div>
+            <div class="album-info">
+                <span class="album-number">04 / FAVOURITE ARTIST</span>
+                <h2>Graduation</h2>
+                <p>Kanye West</p>
+            </div>
+        </article>
+
+        <article class="album-card">
+            <div class="album-cover cover-kqwanele">
+                <span class="cover-text">PRIVADO ESCUELA</span>
+            </div>
+            <div class="album-info">
+                <span class="album-number">05 / FAVOURITE ARTIST</span>
+                <h2>Privado Escuela</h2>
+                <p>Kqwanele604</p>
+            </div>
+        </article>
+
+    </section>
+
+    <footer class="music-footer">
+        BOSS BK. &nbsp; | &nbsp; MY WORLD. MY SOUND.
     </footer>
+
+</main>
 
 </body>
 </html>
